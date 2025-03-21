@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  vgpu-ls:
+    image: vgpu-ls:latest
+    container_name: vGPU-License-Server
+    privileged: true
+    mac_address: 02:42:ac:11:00:02  # 指定固定的MAC地址
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    ports:
+      - "8080:8080"  # Tomcat端口
+      - "7070:7070"  # License Server端口 
